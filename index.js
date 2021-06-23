@@ -14,6 +14,10 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }))
 app.use('/movies', Movies);
 app.use('/users', Users);
 
+app.get("*", (req, res) => {
+    res.send("hello world")
+})
+
 const port = process.env.PORT || 3000
 async function run() {
     await initDB();
