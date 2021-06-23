@@ -1,0 +1,30 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Free rest api for developers",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubham-thorat/Rest-api.git"
+  },
+  "keywords": [],
+  "author": "Shubham Thorat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubham-thorat/Rest-api/issues"
+  },
+  "homepage": "https://github.com/shubham-thorat/Rest-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "mongoose": "^5.12.14"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
