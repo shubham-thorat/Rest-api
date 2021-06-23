@@ -2,6 +2,7 @@ import express from 'express';
 import Movies from './routes/movies.js'
 import Users from './routes/users.js'
 import { initDB } from './models/db.js';
+import dotenv from 'dotenv'
 
 dotenv.config();
 const app = express()
