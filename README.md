@@ -1,6 +1,6 @@
 # Rest-api
 Free rest api for developers
-
+https://free-restapi.herokuapp.com/
 
 ### MOVIES REST API
 # movieSchema : 
@@ -21,13 +21,13 @@ Free rest api for developers
     "overview":"Ray Garrison, an elite soldier killed in battle, is resurrected and given superhuman       abilities. As  he sets out to get revenge, he uncovers secrets about his life and the people supposedlhelping him."
 }
 
- GET   /movies
+ GET   https://free-restapi.herokuapp.com/movies
  Response ( Array Of Object)
 
- GET   /movies/:id
+ GET   https://free-restapi.herokuapp.com/movies/:id
  Response ( Movie object with given id)
 
- POST     /movies
+ POST     https://free-restapi.herokuapp.com/movies
  request body required { type : movieSchema }
  Response (Movie schema object)
 
@@ -63,13 +63,13 @@ Free rest api for developers
     }
 }
 
- GET   /users
+ GET   https://free-restapi.herokuapp.com/users
  Response ( Array Of Object)
 
- GET   /users/:id
+ GET   https://free-restapi.herokuapp.com/users/:id
  Response ( User object with given id)
 
- POST     /users
+ POST     https://free-restapi.herokuapp.com/users
  request body required { type : userSchema }
  Response (User schema object)
 
