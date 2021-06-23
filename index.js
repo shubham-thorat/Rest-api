@@ -1,6 +1,4 @@
-// import path from 'path';
 import express from 'express';
-import dotenv from 'dotenv'
 import Movies from './routes/movies.js'
 import Users from './routes/users.js'
 import { initDB } from './models/db.js';
