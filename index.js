@@ -14,7 +14,7 @@ app.use('/movies', Movies);
 app.use('/users', Users);
 
 app.get("*", (req, res) => {
-    res.send("hello world")
+    res.send("404! Page not found")
 })
 
 const port = process.env.PORT || 3000
