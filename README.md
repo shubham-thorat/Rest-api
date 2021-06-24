@@ -2,8 +2,8 @@
 Free rest api for developers
 https://free-restapi.herokuapp.com/
 
-### MOVIES REST API
-# movieSchema : 
+## MOVIES REST API
+###### movieSchema : 
 {
     "movieID" : Number,
     "title" : String,
@@ -11,7 +11,7 @@ https://free-restapi.herokuapp.com/
     "rating":"String",
     "overview":"String"
 }
-# Object Demo:
+###### Object Demo:
 {
     "movieID" : 1,
     "title":"BloodShot",
@@ -21,20 +21,20 @@ https://free-restapi.herokuapp.com/
     "overview":"Ray Garrison, an elite soldier killed in battle, is resurrected and given superhuman       abilities. As  he sets out to get revenge, he uncovers secrets about his life and the people supposedlhelping him."
 }
 
- GET   https://free-restapi.herokuapp.com/movies
+ ** GET **   https://free-restapi.herokuapp.com/movies
  Response ( Array Of Object)
 
- GET   https://free-restapi.herokuapp.com/movies/:id
+ ** GET **   https://free-restapi.herokuapp.com/movies/:id
  Response ( Movie object with given id)
 
- POST     https://free-restapi.herokuapp.com/movies
- request body required { type : movieSchema }
+** POST **     https://free-restapi.herokuapp.com/movies
+ request body required { type : movieSchema }  **movieID is not required **
  Response (Movie schema object)
 
 
 
-### USERS REST API
-# userSchema : 
+## USERS REST API
+###### userSchema : 
 {
     "userID":String, 
     "name":String,
@@ -48,7 +48,7 @@ https://free-restapi.herokuapp.com/
         "pinCode": String
     }
 }
-# Object Demo:
+###### Object Demo:
 {
     "userID" : 1,
     "name":"Chelsey Dietrich",
@@ -63,13 +63,37 @@ https://free-restapi.herokuapp.com/
     }
 }
 
- GET   https://free-restapi.herokuapp.com/users
+** GET **   https://free-restapi.herokuapp.com/users
  Response ( Array Of Object)
 
- GET   https://free-restapi.herokuapp.com/users/:id
+** GET **   https://free-restapi.herokuapp.com/users/:id
  Response ( User object with given id)
 
- POST     https://free-restapi.herokuapp.com/users
- request body required { type : userSchema }
+ ** POST **     https://free-restapi.herokuapp.com/users
+ request body required { type : userSchema } **userID is not required **
  Response (User schema object)
+
+
+## QUOTES REST API
+###### quoteSchema : 
+{
+    "quoteID":String,
+    "author":String,
+    "quote":String.
+}
+###### Object Demo:
+{
+    "author":"Albert Einstein",
+    "quote":"If you want to live a happy life, tie it to a goal, not to people or things"
+}
+
+** GET **   https://free-restapi.herokuapp.com/quotes
+ Response ( Array Of Object)
+
+** GET **   https://free-restapi.herokuapp.com/quotes/:id
+ Response ( Quote object with given id)
+
+ ** POST **     https://free-restapi.herokuapp.com/quotes
+ request body required { type : quoteSchema } **quoteID not required **
+ Response (Quote schema object)
 

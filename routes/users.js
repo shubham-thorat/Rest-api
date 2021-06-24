@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
     const id = req.params.id
     User.findOne({ userID: id }, { _id: false, __v: false }, (error, docs) => {
         if (docs == null) {
-            res.status(404).json({ "message": "Items not found" })
+            return res.status(404).json({ "message": "Items not found" })
         }
         else
             res.status(200).json(docs);
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
     } } = req.body
     try {
 
-        const newID = await changeID(0);
+        const newID = await changeID(0, "users");
         let len = newID + 1;
 
         const newUser = new User({
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
             if (err) {
                 return res.status(201).json({ "message": err.message })
             }
-            await changeID(1);
+            await changeID(1, "users");
             const { userID, name, username, email, phone_no, address } = docs
             return res.status(201).json({
                 "useID": userID,
@@ -73,12 +73,5 @@ router.post('/', async (req, res) => {
     }
 })
 
-async function changeID(count) {
-    const IDs = await ID.findOneAndUpdate(
-        { collection_name: "users" },
-        { $inc: { lastID: count } },
-        { new: true, upsert: true }
-    )
-    return IDs.lastID;
-}
+
 export default router

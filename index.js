@@ -1,6 +1,7 @@
 import express from 'express';
 import Movies from './routes/movies.js'
 import Users from './routes/users.js'
+import Quotes from './routes/quotes.js'
 import { initDB } from './models/db.js';
 import dotenv from 'dotenv'
 
@@ -12,7 +13,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }))
 
 app.use('/movies', Movies);
 app.use('/users', Users);
-
+app.use('/quotes', Quotes);
 app.get("*", (req, res) => {
     res.send("404! Page not found")
 })

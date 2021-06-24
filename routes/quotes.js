@@ -1,17 +1,19 @@
-import { Router } from "express";
-import Movie from "../models/movieSchema.js";
-import changeID from "../helpers/changeID.js";
-const router = Router()
+import { Router } from 'express'
+import changeID from '../helpers/changeID.js';
+import Quote from '../models/quoteSchema.js';
+
+const router = Router();
+
 
 //@METHOD GET
 //@desc get all movies from database
 //@visibility public
 router.get('/', (req, res) => {
 
-    Movie.find({}, { _id: false, __v: false }, (error, result) => {
+    Quote.find({}, { _id: false, __v: false }, (error, result) => {
         if (error) return res.status(500).json({ "message": error });
         if (result.length === 0) {
-            return res.status(404).json({ "message": "Items not found" })
+            return res.status(404).json({ "message": "No Quotes Available" })
         }
         res.status(200).json(result);
     })
@@ -23,7 +25,7 @@ router.get('/', (req, res) => {
 //@visibility public
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    Movie.findOne({ movieID: id }, { _id: false, __v: false }, (error, docs) => {
+    Quote.findOne({ quoteID: id }, { _id: false, __v: false }, (error, docs) => {
         if (docs == null) {
             return res.status(404).json({ "message": "Items not found" })
         }
@@ -36,27 +38,24 @@ router.get('/:id', (req, res) => {
 //@desc add movies to database for public
 //@visibility public
 router.post('/', async (req, res) => {
-    const { title, image_url, year, rating, overview } = req.body
+    const { author, quote } = req.body
     try {
 
-        const newID = await changeID(0, "movies");
+        const newID = await changeID(0, "quotes");
         let len = newID + 1;
 
-        const newMovie = new Movie({ movieID: len, title, image_url, year, rating, overview })
+        const newMovie = new Quote({ quoteID: len, author, quote })
 
         newMovie.save(async (err, docs) => {
             if (err) {
                 return res.status(201).json({ "message": err.message })
             }
-            await changeID(1, "movies");
-            const { movieID, title, image_url, year, rating, overview } = docs
+            await changeID(1, "quotes");
+            const { quoteID, author, quote } = docs
             return res.status(201).json({
-                "movieID": movieID,
-                "title": title,
-                "year": year,
-                "image_url": image_url,
-                "rating": rating,
-                "overview": overview
+                "quoteID": quoteID,
+                "author": author,
+                "quote": quote
             })
         })
     } catch (err) {
